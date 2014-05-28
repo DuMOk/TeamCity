@@ -5,7 +5,7 @@
     <SolutionFile>Task3.sln</SolutionFile>
   </PropertyGroup>  
   
-  <Target Name="BuildAll" DependsOnTargets="Compile" />  
+  <Target Name="BuildAll" DependsOnTargets="Compile;Test" />  
 
   <Target Name="Compile">
     <Message Text="=== COMPILING $(Configuration) configuration ===" />
@@ -16,8 +16,8 @@
   <Target Name="Test">
     <ItemGroup>
       <TestAssemblies 
-        Include="**\Task3.exe" 
-        Exclude="**\obj\**;**\packages\NUnit.2.5.10.11092\**" />
+        Include="**\Task2.exe" 
+        Exclude="**\nunit.framework.dll" />
     </ItemGroup>
 
     <Message Text="=== RUNNING UNIT TESTS ==="/>

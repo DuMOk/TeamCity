@@ -16,7 +16,8 @@
   <Target Name="Test">
     <ItemGroup>
       <TestAssemblies 
-        Include="**\Task2.exe" />
+        Include="**\Task2.exe" 
+        Exclude="**\obj\**" />
     </ItemGroup>
 
     <Message Text="=== RUNNING UNIT TESTS ==="/>

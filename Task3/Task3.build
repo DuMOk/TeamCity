@@ -11,5 +11,17 @@
     <Message Text="=== COMPILING $(Configuration) configuration ===" />
     <MSBuild Projects="$(SolutionFile)" 
              Properties="Configuration=$(Configuration)" />
-  </Target>  
+  </Target>
+  
+  <Target Name="Test">
+    <ItemGroup>
+      <TestAssemblies 
+        Include="**\Task3.exe" 
+        Exclude="**\obj\**;**\packages\NUnit.2.5.10.11092\**" />
+    </ItemGroup>
+
+    <Message Text="=== RUNNING UNIT TESTS ==="/>
+    <NUnit Assemblies="@(TestAssemblies)" ToolPath="$(NUnitPath)" 
+          DisableShadowCopy="true" />
+  </Target>
 </Project>
